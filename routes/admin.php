@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\CustomerController;
 
 Route::get('/admin/login', [AdminAuthController::class, 'login'])->name('admin.login');
@@ -16,6 +17,8 @@ Route::get('/admin/customer', [CustomerController::class, 'index'])->name('custo
 Route::get('/admin/customer/{customer}', [CustomerController::class, 'destroy'])->name('customer.destroy');
 
 Route::resource('admin', AdminController::class);
+
+Route::resource('roles', RoleController::class)->names('admin.roles');
 
 
 

@@ -8,5 +8,6 @@
 
 @section('body')
 <x-formLogin routeForm="{{route('customer.authenticate')}}" routeRegister="{{route('customer.create')}}" titleLogin="Trendy"  routeForgotPassword="{{route('customer.forgotpassword')}}"/>
+<h1>{{$saludo2}}</h1>
 
 @endsection

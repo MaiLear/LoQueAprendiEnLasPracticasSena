@@ -206,3 +206,13 @@ body {
 .inactive{
     display: none;
 }
+
+
+.boton-verde{
+    background-color: green !important;
+}
+
+div.dataTables_wrapper {
+    width: 800px;
+    margin: 0 auto;
+}

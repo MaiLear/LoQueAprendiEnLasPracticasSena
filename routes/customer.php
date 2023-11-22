@@ -25,7 +25,7 @@ Route::post('/login', [CustomerController::class, 'authenticate'])->name('custom
 
 
 
-Route::get('/forgot', function(){
+Route::get('/forgot', function () {
     Mail::to('mairotavista@gmail.com')->send(new ResetPasswordMailable);
     return 'Enviado';
 });
@@ -40,3 +40,27 @@ Route::post('/reset-password', [CustomerController::class, 'resetPasswordPost'])
 
 Route::get('/create', [CustomerController::class, 'create'])->name('customer.create');
 Route::post('/create', [CustomerController::class, 'store'])->name('customer.store');
+
+Route::get('/html', function () {
+    $posts = [
+        [
+            'title' => 'post1',
+            'content' => 'este es el contenido',
+            'tags' => ['tag1','tag2','tag3']
+        ],
+        [
+            'title' => 'post1',
+            'content' => 'este es el contenido',
+            'tags' =>[ 'tag4','tag5','tag6',]
+        ],
+        [
+            'title' => 'post1',
+            'content' => 'este es el contenido',
+            'tags' =>[ 'tag7','tag8','tag9']
+        ]
+    ];
+    
+        $post45 = null;
+        return view('index', compact('posts','post45'));
+
+});

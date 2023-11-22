@@ -11,6 +11,8 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "jszip": "^3.10.1",
+        "pdfmake": "^0.2.7",
         "turbolinks": "^5.2.0"
     }
 }

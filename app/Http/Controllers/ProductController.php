@@ -9,15 +9,24 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function index(Request $request)
+
+    public function __construct(){
+        $this->middleware('role:SuperAdmin,admin')->only('create','show','desroy');
+    }
+
+    public function index()
     {
+        return view('admin.products');
+    }
+
+    public function getData(){
         $url = env('URL_SERVER_API');
-        $values = Http::get($url . '/products', [
-            'value' =>  $request->search
-        ]);
-        $data = $values['products'];
-        $newProducts = $values['newProducts'];
-        return view('admin.products', compact('data', 'newProducts'));
+        $response = Http::get($url . '/products');
+        $products = $response['products'];
+        $newProducts = $response['newProducts'];
+        $data = ['products'=>$products, 'newproducts' => $newProducts];
+        return $products;
+
     }
     
     public function store(ProductRequest $request)
